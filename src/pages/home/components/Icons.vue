@@ -79,6 +79,9 @@ export default {
   height: 0;
   padding-bottom: 50%;
 }
+.icons{
+  margin-top: 5px;
+}
 .icon {
   overflow: hidden;
   width: 25%;
