@@ -5,13 +5,16 @@
    </div>
    <div class="header-input"> <span class="iconfont">&#xe632;</span>输入城市景点游玩主题</div>
    <div class="header-right">
-       城市<span class="iconfont arrow-icon">&#xe64a;</span></div>
+       {{this.city}}<span class="iconfont arrow-icon">&#xe64a;</span></div>
 </div>
 </template>
 
 <script>
 export default {
-name:' HomeHeader'
+name:' HomeHeader',
+props:{
+    city:String
+}
 }
 </script>
 
@@ -49,7 +52,9 @@ name:' HomeHeader'
 }
 .arrow-icon{
     margin-left: 2px;
-    font-size: 12px;
+    font-size: 14px;
+    margin-right: 4px;
+    margin-top: 1px;
 }
 </style>
 

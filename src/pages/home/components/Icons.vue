@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -18,51 +18,20 @@
 <script>
 export default {
   name: "HomeIcons",
+  props:{
+    list:Array
+  },
   data(){
       return{
-          iconList:[{
-              id:'0001',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135908902_content_LightGray_Vignette_Standard_160x160_1557215103_Vignette_581085XJBIO4318_001_Light.jpg',
-              desc:'很多很多很多的小小可爱的卫衣'
-          },{
-              id:'0002',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          },{
-              id:'0003',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/1557312013590295_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_586028ZAB1R2259_001_Light.jpg',
-              desc:'半裙'
-          },{
-              id:'0004',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          },{
-              id:'0005',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          },{
-              id:'0006',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          },{
-              id:'0007',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          },{
-              id:'0008',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          },{
-              id:'0009',
-              imgUrl:'https://res.gucci.cn/resources/2019/5/8/15573120135904759_content_LightGray_Vignette_Standard_160x160_1557215104_Vignette_581875J1D518516_001_Light.jpg',
-              desc:'珠宝'
-          }]
+          swiperOption:{
+            autoplay:false
+          }
       }
   },
   computed:{
       pages:function(){
           const pages = []
-          this.iconList.forEach((item,index) => {
+          this.list.forEach((item,index) => {
               const page = Math.floor(index / 8)
               if(!pages[page]){
                   pages[page] = []
